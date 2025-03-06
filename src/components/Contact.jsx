@@ -44,8 +44,8 @@ export default function Contact() {
       <div className="container mx-auto px-6">
         {/* "Contact" header in an inline grey card */}
         <div className="flex justify-center mb-4">
-          <div className="bg-gray-700 inline-block px-4 py-2">
-            <h2 className="text-3xl font-bold text-center" style={{ color: "#f6d4b1" }}>
+        <div className="inline-block px-4 py-2" style={{ backgroundColor: "#0D1317" }}>
+            <h2 className="text-3xl font-bold text-center" style={{ color: "#BFEDC1" }}>
               Contact
             </h2>
           </div>
@@ -74,7 +74,7 @@ export default function Contact() {
         </p>
         <form
           onSubmit={handleSubmit}
-          className="max-w-lg mx-auto bg-gray-800 p-6 rounded-lg shadow-md"
+          className="max-w-lg mx-auto bg-gray-700 p-6 rounded-lg shadow-md"
         >
           <div className="mb-4">
             <label className="block text-gray-300">Name</label>
@@ -84,7 +84,7 @@ export default function Contact() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full p-3 bg-gray-700 rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full p-3 bg-gray-600 rounded-md border border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
           <div className="mb-4">
@@ -95,7 +95,7 @@ export default function Contact() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full p-3 bg-gray-700 rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full p-3 bg-gray-600 rounded-md border border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
           <div className="mb-4">
@@ -106,12 +106,12 @@ export default function Contact() {
               onChange={handleChange}
               required
               rows="4"
-              className="w-full p-3 bg-gray-700 rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full p-3 bg-gray-600 rounded-md border border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-700 hover:bg-blue-600 text-white py-3 rounded-md transition"
+            className="w-full bg-[#A795E6] hover:bg-[#BAA5FF] text-black font-bold py-3 rounded-md transition"
           >
             Send Message
           </button>

@@ -19,7 +19,7 @@ export default function Projects() {
         "A platform for discovering new music through intelligent recommendations and social sharing. Built with Next.js, Tailwind, and Spotify API integration.",
       image: "/coming_soon.png",
       link: "#",
-      tech: ["Next.js", "Tailwind", "Spotify API"],
+      tech: ["GoLang", "React", "React Native", "Tailwind", "Spotify API", "Apple Music API", "Tidal API", ],
     },
   ];
 
@@ -39,9 +39,9 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-gray-700 p-6 rounded shadow text-[#f4d7c5]"
+              className="bg-gray-700 p-6 rounded shadow text-[#FAC9B8]"
             >
-              {/* Title with peach color */}
+              {/* Title with peach color */}  
               <h3 className="text-2xl font-bold mb-1 text-primaryBg">
                 {project.title}
               </h3>

@@ -6,11 +6,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        primaryBg: "#f6d4b1", // your background color
-        primaryText: "#535253", // your preferred font color
+        primaryBg: "#BFEDC1", // your background color
+        primaryText: "#0D1317", // your preferred font color
       },
       fontFamily: {
-        sans: ["'Fira Code'", "monospace"],
+        sans: ["'VT323'", "monospace"],
       },
     },
   },
