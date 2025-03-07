@@ -1,40 +1,22 @@
-import { useState, useRef } from "react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { useState, useRef, useEffect } from "react";
 import Container from "../components/Container";
 import Slider from "react-slick";
-import Particles from "@tsparticles/react";
 
-// ParticleBackground component
-function ParticleBackground() {
-  const particlesOptions = {
-    fpsLimit: 60,
-    background: {
-      color: { value: "#0D1317" }
-    },
-    interactivity: {
-      events: {
-        onHover: { enable: true, mode: "repulse" },
-        resize: true
-      },
-      modes: {
-        repulse: { distance: 100, duration: 0.4 }
-      }
-    },
-    particles: {
-      color: { value: "#BFEDC1" },
-      links: { enable: true, color: "#BFEDC1", distance: 150 },
-      collisions: { enable: false },
-      move: { enable: true, speed: 2, outMode: "bounce" },
-      number: { density: { enable: true, area: 800 }, value: 50 },
-      opacity: { value: 0.5 },
-      shape: { type: "circle" },
-      size: { value: { min: 1, max: 5 } }
-    },
-    detectRetina: true
-  };
-
-  return (
-    <Particles className="absolute inset-0 z-[-1]" options={particlesOptions} />
+// Custom hook to detect portrait mode (if needed for arrow styling)
+function useIsPortrait() {
+  const [isPortrait, setIsPortrait] = useState(
+    typeof window !== "undefined" ? window.innerHeight > window.innerWidth : false
   );
+  useEffect(() => {
+    const handleResize = () => {
+      setIsPortrait(window.innerHeight > window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  return isPortrait;
 }
 
 function CollapsibleSkill({ skill, isOpen, onClick }) {
@@ -49,9 +31,61 @@ function CollapsibleSkill({ skill, isOpen, onClick }) {
   );
 }
 
+// Custom arrow components for portrait view (optional)
+function CustomPrevArrow(props) {
+  const { onClick, currentSlide } = props;
+  const disabled = currentSlide === 0;
+  return (
+    <button
+      onClick={disabled ? null : onClick}
+      style={{
+        position: "absolute",
+        left: "20px",
+        top: "50%",
+        transform: "translateY(-50%)",
+        zIndex: 1000,
+        background: "transparent",
+        border: "none",
+        fontSize: "35px",
+        color: disabled ? "grey" : "black",
+        cursor: disabled ? "default" : "pointer",
+      }}
+      disabled={disabled}
+    >
+      &#10094;
+    </button>
+  );
+}
+
+function CustomNextArrow(props) {
+  const { onClick, currentSlide, slideCount } = props;
+  const disabled = currentSlide === slideCount - 1;
+  return (
+    <button
+      onClick={disabled ? null : onClick}
+      style={{
+        position: "absolute",
+        right: "20px",
+        top: "50%",
+        transform: "translateY(-50%)",
+        zIndex: 1000,
+        background: "transparent",
+        border: "none",
+        fontSize: "35px",
+        color: disabled ? "grey" : "black",
+        cursor: disabled ? "default" : "pointer",
+      }}
+      disabled={disabled}
+    >
+      &#10095;
+    </button>
+  );
+}
+
 export default function Skills() {
   const [openSkill, setOpenSkill] = useState({});
   const sliderRef = useRef(null);
+  const isPortrait = useIsPortrait();
 
   const skills = {
     "💻 Front-End": [
@@ -93,7 +127,6 @@ export default function Skills() {
     ]
   };
 
-  // Toggle open state for a specific category and skill index.
   const toggleSkill = (category, index) => {
     setOpenSkill(prev => ({
       ...prev,
@@ -108,22 +141,27 @@ export default function Skills() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    appendDots: (dots) => (
+      <div style={{ padding: "10px 0" }}>
+        <ul style={{ margin: "0px" }}> {dots} </ul>
+      </div>
+    ),
+    // Use custom arrows in portrait only
+    ...(isPortrait && { prevArrow: <CustomPrevArrow />, nextArrow: <CustomNextArrow /> }),
   };
 
   const categories = Object.keys(skills);
 
   return (
     <section id="skills" className="relative py-4 text-white">
-      {/* Particle background behind everything */}
-      <ParticleBackground />
       <Container>
         {/* Skills Header */}
         <div className="flex justify-center mb-4">
-          <div className="bg-primaryText inline-block px-4 py-2 shadow">
-            <h2 className="text-3xl font-bold text-center text-primaryBg">
-              Skills
-            </h2>
-          </div>
+        <section className="flex flex-col justify-center items-center bg-transparent">
+      <h2 className="text-4xl font-bold px-4 py-2 text-[#BFEDC1] bg-[#0D1317]/70 rounded-md shadow-md">
+        Skills
+      </h2>
+    </section>
         </div>
 
         {/* Navigation Bar for Categories */}
@@ -140,14 +178,12 @@ export default function Skills() {
         </div>
 
         {/* Carousel: One slide per category */}
-        <div className="overflow-hidden">
+        <div className="overflow-visible">
           <Slider ref={sliderRef} {...settings}>
             {categories.map((category) => (
               <div key={category}>
-                <div className="bg-gray-700 p-4 rounded shadow w-full max-w-xl mx-auto h-[400px] overflow-y-auto">
-                  <h3 className="text-xl font-bold mb-3 text-primaryBg">
-                    {category}
-                  </h3>
+                <div className="bg-gray-700 p-7 mb-4 rounded shadow w-full max-w-[617px] mx-auto h-[400px] overflow-y-auto">
+                  <h3 className="text-xl font-bold mb-3 text-primaryBg">{category}</h3>
                   <div className="space-y-2">
                     {skills[category].map((skill, i) => (
                       <CollapsibleSkill

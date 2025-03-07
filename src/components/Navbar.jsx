@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Typewriter } from "react-simple-typewriter";
 
 export default function Navbar() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -8,6 +15,14 @@ export default function Navbar() {
   const offsetShadow = {
     boxShadow: "8px 8px 0 #535253",
   };
+
+  const navItems = [
+    { id: "hero", label: "Home" },
+    { id: "projects", label: "Projects" },
+    { id: "experience", label: "Experience" },
+    { id: "skills", label: "Skills" },
+    { id: "contact", label: "Contact" },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-primaryBg bg-opacity-90 backdrop-blur-md">
@@ -27,10 +42,9 @@ export default function Navbar() {
               fill="currentColor"
               viewBox="0 0 448 512"
             >
-              <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.8 0 54.1S24.09 0 53.79 0s53.79 24.29 53.79 54S83.49 108.1 53.79 108.1zm394.2 339.9h-92.68V302.4c0-34.7-12.42-58.4-43.45-58.4-23.7 0-37.8 15.9-44 31.3-2.3 5.6-2.9 13.5-2.9 21.4V448h-92.68s1.25-238.1 0-262.1h92.68v37.1c12.3-19 34.3-46.1 83.6-46.1 61 0 106.6 39.8 106.6 125.4V448z" />
+              <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.8 0 54.1S24.09 0 53.79 0s53.79 24.29 53.79 54S83.49 108.1 53.79 108.1zM394.2 447.9h-92.68V302.4c0-34.7-12.42-58.4-43.45-58.4-23.7 0-37.8 15.9-44 31.3-2.3 5.6-2.9 13.5-2.9 21.4V448h-92.68s1.25-238.1 0-262.1h92.68v37.1c12.3-19 34.3-46.1 83.6-46.1 61 0 106.6 39.8 106.6 125.4V448z" />
             </svg>
           </a>
-
           {/* GitHub Block */}
           <a
             href="https://github.com/yourusername"
@@ -49,48 +63,31 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Navigation Links on the Right */}
+        {/* Navigation Links on the Right using Typewriter effect */}
         <div className="flex items-center space-x-4">
-          <button
-            onClick={() => scrollToSection("hero")}
-            className="border-b-2 border-transparent hover:border-black transition duration-200"
-          >
-            <span className="inline-block text-[#535253] hover:text-black font-bold">
-              Home
-            </span>
-          </button>
-          <button
-            onClick={() => scrollToSection("projects")}
-            className="border-b-2 border-transparent hover:border-black transition duration-200"
-          >
-            <span className="inline-block text-[#535253] hover:text-black font-bold">
-              Projects
-            </span>
-          </button>
-          <button
-            onClick={() => scrollToSection("experience")}
-            className="border-b-2 border-transparent hover:border-black transition duration-200"
-          >
-            <span className="inline-block text-[#535253] hover:text-black font-bold">
-              Experience
-            </span>
-          </button>
-          <button
-            onClick={() => scrollToSection("skills")}
-            className="border-b-2 border-transparent hover:border-black transition duration-200"
-          >
-            <span className="inline-block text-[#535253] hover:text-black font-bold">
-              Skills
-            </span>
-          </button>
-          <button
-            onClick={() => scrollToSection("contact")}
-            className="border-b-2 border-transparent hover:border-black transition duration-200"
-          >
-            <span className="inline-block text-[#535253] hover:text-black font-bold">
-              Contact
-            </span>
-          </button>
+          {navItems.map((item, index) => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className="inline-flex items-center border-b-2 border-transparent hover:border-black transition duration-200"
+            >
+              <span className="inline-block text-[#535253] hover:text-black font-bold">
+                {mounted ? (
+                  <Typewriter
+                    words={[item.label]}
+                    typeSpeed={50}
+                    deleteSpeed={0}
+                    loop={1}
+                    cursor
+                    cursorStyle="|"
+                    delaySpeed={index * 500}
+                  />
+                ) : (
+                  item.label
+                )}
+              </span>
+            </button>
+          ))}
         </div>
       </div>
     </nav>

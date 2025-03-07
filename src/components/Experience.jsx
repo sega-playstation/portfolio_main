@@ -7,11 +7,11 @@ export default function Experience() {
       <Container>
         {/* Section Heading with peach letters inside a gray box */}
         <div className="flex justify-center mb-4">
-          <div className="bg-primaryText inline-block px-4 py-2">
-            <h2 className="text-3xl font-bold text-center text-primaryBg">
-              Experience
-            </h2>
-          </div>
+        <section className="flex flex-col justify-center items-center bg-transparent">
+      <h2 className="text-4xl font-bold px-4 py-2 text-[#BFEDC1] bg-[#0D1317]/70 rounded-md shadow-md">
+        Experience
+      </h2>
+    </section>
         </div>
 
         {/* Side-by-side cards on md+ screens */}

@@ -44,11 +44,11 @@ export default function Contact() {
       <div className="container mx-auto px-6">
         {/* "Contact" header in an inline grey card */}
         <div className="flex justify-center mb-4">
-        <div className="inline-block px-4 py-2" style={{ backgroundColor: "#0D1317" }}>
-            <h2 className="text-3xl font-bold text-center" style={{ color: "#BFEDC1" }}>
-              Contact
-            </h2>
-          </div>
+        <section className="flex flex-col justify-center items-center bg-transparent">
+      <h2 className="text-4xl font-bold px-4 py-2 text-[#BFEDC1] bg-[#0D1317]/70 rounded-md shadow-md">
+        Contact
+      </h2>
+    </section>
         </div>
         {/* Additional text under Contact with gray text and bold Linkedin link with an SVG icon */}
         <p className="text-center text-primaryText mb-8">
