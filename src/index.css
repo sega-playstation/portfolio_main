@@ -59,7 +59,7 @@
   top: -450vh; 
   left: 0;
   width: 100%;
-  height: 1000vh; /* Full coverage */
+  height: 0vh; /* Full coverage */
   background: #227a1f33; /* 20% opacity purple using an 8-digit hex */
   z-index: -2;
   /* Here, we use a small multiplier so that the overlay shifts slowly */
@@ -72,3 +72,15 @@
 body {
   @apply text-primaryText font-sans;
 }
+
+/* @keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+} */
+
