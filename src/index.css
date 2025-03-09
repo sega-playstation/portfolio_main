@@ -13,10 +13,10 @@
   font-size: 55px !important;
 }
 .slick-prev {
-  left: 50px !important;
+  left: 3% !important;
 }
 .slick-next {
-  right: 70px !important;
+  right: 7.5% !important;
 }
 .slick-list {
   overflow-x: hidden !important;
@@ -47,11 +47,6 @@
   mix-blend-mode: overlay;
 }
 
-/* Overlay layer: Full coverage with differential movement.
-   We set its height to 1000vh for full coverage.
-   The key is to position it initially so it covers the container.
-   Then as you scroll (global scroll), we move it slightly.
-*/
 .parallax-container::after {
   content: "";
   position: absolute;
@@ -73,14 +68,15 @@ body {
   @apply text-primaryText font-sans;
 }
 
-/* @keyframes slideIn {
-  from {
-    transform: translateX(-20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-} */
 
+/* In your CSS file (e.g., custom.css) */
+.custom-dotted {
+  border: 2px solid transparent;
+  border-image: repeating-radial-gradient(
+    circle,
+    currentColor,
+    currentColor 2px,
+    transparent 4px,
+    transparent 6px
+  ) 1;
+}

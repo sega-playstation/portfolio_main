@@ -29,7 +29,7 @@ export default function Projects() {
         {/* Section Heading with peach letters inside a gray box */}
         <div className="flex justify-center mb-8">
         <section className="flex flex-col justify-center items-center bg-transparent">
-      <h2 className="text-4xl font-bold px-4 py-2 text-[#BFEDC1] bg-[#0D1317]/70 rounded-md shadow-md">
+      <h2 className="text-4xl font-bold px-4 py-2 text-[#BFEDC1] bg-[#0D1317]/25 rounded-md shadow-md">
         Projects
       </h2>
     </section>

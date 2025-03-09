@@ -45,7 +45,7 @@ export default function Contact() {
         {/* "Contact" header in an inline grey card */}
         <div className="flex justify-center mb-4">
         <section className="flex flex-col justify-center items-center bg-transparent">
-      <h2 className="text-4xl font-bold px-4 py-2 text-[#BFEDC1] bg-[#0D1317]/70 rounded-md shadow-md">
+      <h2 className="text-4xl font-bold px-4 py-2 text-[#BFEDC1] bg-[#0D1317]/25 rounded-md shadow-md">
         Contact
       </h2>
     </section>
