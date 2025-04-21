@@ -27,6 +27,7 @@
     "react-typed": "^2.0.12",
     "resend": "^4.1.2",
     "slick-carousel": "^1.8.1",
+    "tweakpane": "^4.0.5",
     "typed.js": "^2.1.0"
   },
   "devDependencies": {

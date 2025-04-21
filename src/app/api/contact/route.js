@@ -1,15 +1,14 @@
-// server.js (run this with "node server.js" or via your dev script)
-
 import express from 'express';
 import { Resend } from 'resend';
 import dotenv from 'dotenv';
 
-dotenv.config(); // Loads .env variables like RESEND_API_KEY, EMAIL_FROM, EMAIL_TO
+// Loads .env variables
+dotenv.config(); 
 
 const app = express();
-app.use(express.json()); // Parse JSON request bodies
+app.use(express.json());
 
-// Initialize Resend with your API key
+// Initialize Resend with API key
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 app.post('/api/contact', async (req, res) => {
@@ -32,7 +31,7 @@ app.post('/api/contact', async (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Express server listening on port ${PORT}`);
 });

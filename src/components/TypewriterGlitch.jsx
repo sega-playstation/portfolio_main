@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const SmoothTypewriter = ({ text, delay = 0, letterDelay = 0.1, duration = 0.3 }) => {
+const TypewriterGlitch = ({ text, delay = 0, letterDelay = 0.1, duration = 0.3 }) => {
   const [displayedText, setDisplayedText] = useState("");
 
   useEffect(() => {
@@ -48,4 +48,4 @@ const SmoothTypewriter = ({ text, delay = 0, letterDelay = 0.1, duration = 0.3 }
   );
 };
 
-export default SmoothTypewriter;
+export default TypewriterGlitch;  // Ensure the component is exported as TypewriterGlitch

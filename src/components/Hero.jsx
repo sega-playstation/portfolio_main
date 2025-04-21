@@ -7,18 +7,19 @@ export default function Hero() {
           Hello
         </h2>
       </section>
-      {/* Centered container for text and dotted line */}
+
       <div className="w-full max-w-xl mx-auto mt-6 mb-4">
-        {/* Text is left-aligned inside this container */}
         <div className="text-left">
           <p className="font-bold text-md">
-            My name is Stephen Kryworuchka, a full‑stack web developer and dev‑ops technician. I also hold an Autodesk AutoCAD certification (2018–2019) from the Manitoba Institute of Trades and Technology.
+            My name is Stephen Kryworuchka — a full-stack web developer and DevOps technician with a diploma in Business Information Technology from Red River College Polytechnic. I also hold an Autodesk AutoCAD certification (2018–2019) from the Manitoba Institute of Trades and Technology.
           </p>
-          <p className="mt-6 font-bold text-lg">
-            In addition to my interest in web development, I am also interested in IoT, networking, and 3D printing.
+
+          <p className="mt-6 font-bold text-md">
+            I manage infrastructure and deployment for production web apps, including provisioning Jenkins and maintaining CI/CD pipelines on business-owned Linux servers. My experience includes Docker-based workflows and custom hosting environments, with additional usage of AWS, Azure, DigitalOcean, and OVH.
           </p>
         </div>
-        {/* Dotted line spans the full width of the container */}
+
+        {/* Dotted line */}
         <div className="w-full border-t-2 border-dotted border-gray-500 my-16 custom-dotted"></div>
       </div>
     </section>

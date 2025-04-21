@@ -2,6 +2,7 @@
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
 
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -30,7 +31,7 @@
 .parallax-container {
   position: relative;
   overflow: hidden;
-  min-height: 100vh; /* Full viewport height */
+  min-height: 100vh; 
 }
 
 /* Base layer: Fixed gradient background */
@@ -50,26 +51,23 @@
 .parallax-container::after {
   content: "";
   position: absolute;
-  /* Position it so that the middle of the overlay lines up with the container */
+  
   top: -450vh; 
   left: 0;
   width: 100%;
-  height: 0vh; /* Full coverage */
-  background: #227a1f33; /* 20% opacity purple using an 8-digit hex */
+  height: 0vh; 
+  background: #227a1f33; 
   z-index: -2;
-  /* Here, we use a small multiplier so that the overlay shifts slowly */
+  
   transform: translateY(calc(var(--global-scroll, 0px) * 4));
   transition: transform 0.3s ease-out;
   mix-blend-mode: overlay;
 }
 
-/* Remove default body background so our parallax container is in charge */
 body {
   @apply text-primaryText font-sans;
 }
 
-
-/* In your CSS file (e.g., custom.css) */
 .custom-dotted {
   border: 2px solid transparent;
   border-image: repeating-radial-gradient(

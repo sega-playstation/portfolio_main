@@ -1,0 +1,11 @@
+services:
+  portfolio_main:
+    build: .
+    ports:
+      - "8000:8000"
+    container_name: portfolio_main
+    restart: unless-stopped
+    environment:
+      - RESEND_API_KEY=${RESEND_API_KEY}
+      - EMAIL_FROM=${EMAIL_FROM}
+      - EMAIL_TO=${EMAIL_TO}

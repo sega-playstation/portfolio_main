@@ -1,25 +1,25 @@
-// server.js
 import dotenv from 'dotenv';
 dotenv.config();
 
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { Resend } from 'resend';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
-
-// Use CORS middleware to allow requests from your frontend (by default it allows all origins)
 app.use(cors());
-
-// Parse JSON request bodies
 app.use(express.json());
 
-// Initialize Resend with your API key
 const resend = new Resend(process.env.RESEND_API_KEY);
+console.log('Resend initialized.');
+
 
 app.post('/api/contact', async (req, res) => {
   const { name, email, message } = req.body;
-
   try {
     await resend.emails.send({
       from: process.env.EMAIL_FROM,
@@ -34,7 +34,17 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`Express server listening on port ${PORT}`);
+// Serve frontend static files (Vite production build)
+app.use(express.static(path.join(__dirname, 'dist')));
+
+// SPA fallback (React Router, etc.)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
+
+const PORT = process.env.PORT || 8000;
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Express server is listening on http://0.0.0.0:${PORT}`);
+});
+
