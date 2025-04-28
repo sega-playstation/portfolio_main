@@ -78,3 +78,9 @@ body {
     transparent 6px
   ) 1;
 }
+
+@media (max-width: 1023px) {
+  .sidebar-canvas {
+    display: none;
+  }
+}

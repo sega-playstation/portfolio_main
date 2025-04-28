@@ -23,10 +23,10 @@ export default function Projects() {
       tech: ["React", "Node.js", "Express", "Nginx"],
     },
     {
-      title: "MusicMatch (Coming Soon)",
+      title: "MixMatch (Coming Soon)",
       year: "2025",
       description:
-        "\n\nAn app for discovering new music through intelligent recommendations and social sharing between different music streaming platforms. Built with Go, Tailwind, and streaming site API integration.",
+        "\n\nAn app for discovering new music through intelligent recommendations and social sharing between different music streaming platforms. Built with Go, Tailwind, React and streaming site API integration.",
       images: ["/assets/projects/music1.webp"],
       link: "Coming Soon",
       tech: ["Go", "React", "React Native", "Tailwind", "Spotify API", "Apple Music API", "Tidal API"],
