@@ -2,12 +2,11 @@
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
 
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Slick Carousel customizations */
+/* Slick Carousel Customizations */
 .slick-prev:before,
 .slick-next:before {
   color: black !important;
@@ -27,14 +26,14 @@
   z-index: 1000;
 }
 
-/* Parallax Container styles */
+/* Parallax Container Styles */
 .parallax-container {
   position: relative;
   overflow: hidden;
-  min-height: 100vh; 
+  min-height: 100vh;
 }
 
-/* Base layer: Fixed gradient background */
+/* Base Layer: Fixed Gradient Background */
 .parallax-container::before {
   content: "";
   position: fixed;
@@ -51,23 +50,23 @@
 .parallax-container::after {
   content: "";
   position: absolute;
-  
-  top: -450vh; 
+  top: -450vh;
   left: 0;
   width: 100%;
-  height: 0vh; 
-  background: #227a1f33; 
+  height: 0vh;
+  background: #227a1f33;
   z-index: -2;
-  
   transform: translateY(calc(var(--global-scroll, 0px) * 4));
   transition: transform 0.3s ease-out;
   mix-blend-mode: overlay;
 }
 
+/* Body Styles */
 body {
   @apply text-primaryText font-sans;
 }
 
+/* Custom Dotted Border for Specific Elements */
 .custom-dotted {
   border: 2px solid transparent;
   border-image: repeating-radial-gradient(
@@ -79,8 +78,104 @@ body {
   ) 1;
 }
 
+/* Social Icon Styles */
+.social-links a {
+  display: inline-block;
+  padding: 10px;
+}
+
+.social-links svg {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.2s ease;
+}
+
+/* Hover Effect for Social Icons */
+.social-links a:hover svg {
+  transform: scale(1.1);
+}
+
+/* Hide Sidebar Graphics on Mobile */
 @media (max-width: 1023px) {
   .sidebar-canvas {
     display: none;
+  }
+
+  /* Bottom Navbar for Mobile */
+  .navbar-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Light shadow for separation */
+    display: flex;
+    justify-content: space-between;  /* Evenly space buttons */
+    align-items: center;
+    padding: 10px;
+    z-index: 1000;
+  }
+
+  .navbar-bottom button {
+    font-size: 14px;
+    padding: 12px 16px;
+    margin: 5px;
+    border: 2px solid #333; /* Add border to make them more button-like */
+    background-color: #f1f1f1; /* Light background */
+    color: #333;
+    cursor: pointer;
+    text-align: center;
+    flex-grow: 1; /* Ensure buttons are evenly spaced */
+    border-radius: 8px; /* Rounded corners */
+    white-space: nowrap; /* Prevent text from wrapping into multiple lines */
+  }
+
+  /* Active Button Styling */
+  .navbar-bottom button.active {
+    font-weight: bold;
+    color: #000;
+    background-color: #e0e0e0;
+  }
+
+  /* Hover Effect */
+  .navbar-bottom button:hover {
+    color: #000;
+    background-color: #d1d1d1;
+  }
+  
+  /* Hide Navbar Links (except Contact) on Mobile */
+  .navbar-menu {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Top Navbar */
+  .navbar-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .navbar-menu button {
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    background-color: transparent;
+    color: #333;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .navbar-menu button.active {
+    font-weight: bold;
+    color: #000;
+  }
+
+  /* Hover Effect */
+  .navbar-menu button:hover {
+    color: #000;
+    background-color: #f1f1f1;
   }
 }
