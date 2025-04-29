@@ -105,7 +105,7 @@ export default function Skills() {
     "💻 Front-End": "/assets/icons/frontend/",
     "⚙️ Backend": "/assets/icons/backend/",
     "🗄️ Databases": "/assets/icons/databases/",
-    "☁️ Cloud/DevOps": "/assets/icons/devops/",
+    "☁️ DevOps": "/assets/icons/devops/",
   };
 
   const toggleSkill = (category, index) => {
@@ -230,7 +230,7 @@ export default function Skills() {
         icon: "sqlite"
       },
     ],
-    "☁️ Cloud/DevOps": [
+    "☁️ DevOps": [
       {
         name: "Apache",
         description: "Used in early PHP-based web projects for local testing and basic server configuration.",
@@ -302,7 +302,8 @@ export default function Skills() {
           </section>
         </div>
 
-        <div className="flex justify-center gap-4 mb-4">
+        <div className="hidden sm:flex justify-center gap-4 mb-4">
+
           {categories.map((category, index) => (
             <button
               key={category}

@@ -22,7 +22,7 @@ export default function Sidebars() {
       reverseLogoPhase: false,
       randomizeWave: true,
       waveColor: "rgba(100, 120, 160, 0.45)",
-      logoColor: "rgba(115, 79, 219, 0.80)",
+      logoColor: "rgba(90, 57, 189, 0.8)",
       logoOffsetX: 0,
       logoOffsetY: -90,
       logoFadeSpeed: 0.2,
