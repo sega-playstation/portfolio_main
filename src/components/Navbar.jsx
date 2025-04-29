@@ -73,9 +73,10 @@ export default function Navbar() {
                 onClick={() => scrollToSection(item.id)}
                 className={`inline-flex items-center border-b-2 transition duration-200 font-bold ${
                   activeSection === item.id
-                    ? "text-black border-black"
+                    ? "active text-black border-black"
                     : "text-[#535253] border-transparent hover:text-black hover:border-black"
                 }`}
+                
               >
                 <SmoothTypewriter text={item.label} />
               </button>

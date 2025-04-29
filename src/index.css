@@ -1,7 +1,9 @@
+/* Importing fonts and slick carousel */
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
 
+/* Tailwind Base, Components, and Utilities */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -61,12 +63,12 @@
   mix-blend-mode: overlay;
 }
 
-/* Body Styles */
+
 body {
   @apply text-primaryText font-sans;
 }
 
-/* Custom Dotted Border for Specific Elements */
+
 .custom-dotted {
   border: 2px solid transparent;
   border-image: repeating-radial-gradient(
@@ -78,7 +80,7 @@ body {
   ) 1;
 }
 
-/* Social Icon Styles */
+
 .social-links a {
   display: inline-block;
   padding: 10px;
@@ -90,92 +92,108 @@ body {
   transition: transform 0.2s ease;
 }
 
-/* Hover Effect for Social Icons */
+
 .social-links a:hover svg {
   transform: scale(1.1);
 }
 
-/* Hide Sidebar Graphics on Mobile */
+/* Mobile Button Adjustments */
 @media (max-width: 1023px) {
-  .sidebar-canvas {
-    display: none;
-  }
-
-  /* Bottom Navbar for Mobile */
   .navbar-bottom {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #ffffff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Light shadow for separation */
+    background-color: #3a3546;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: space-between;  /* Evenly space buttons */
+    justify-content: space-between; 
     align-items: center;
-    padding: 10px;
+    padding: 8px;
     z-index: 1000;
+    overflow-x: hidden; 
+    box-shadow: 0 0 0 2px #86cead, 0 0 8px #7284d0;
   }
 
   .navbar-bottom button {
-    font-size: 14px;
-    padding: 12px 16px;
-    margin: 5px;
-    border: 2px solid #333; /* Add border to make them more button-like */
-    background-color: #f1f1f1; /* Light background */
+    font-size: 8px !important;
+    padding: 8px 6px !important;
+    margin: 3px;
+    border: 2px solid #333;
+    background-color: #7284d0;
+    border: 2px solid #000000; 
     color: #333;
     cursor: pointer;
     text-align: center;
-    flex-grow: 1; /* Ensure buttons are evenly spaced */
-    border-radius: 8px; /* Rounded corners */
-    white-space: nowrap; /* Prevent text from wrapping into multiple lines */
+    flex-grow: 1;
+    border-radius: 8px;
+    white-space: nowrap;
+    min-width: 0;
   }
 
-  /* Active Button Styling */
   .navbar-bottom button.active {
     font-weight: bold;
-    color: #000;
-    background-color: #e0e0e0;
+    color: #19191b;
+    background-color: #7284d0;
   }
 
-  /* Hover Effect */
   .navbar-bottom button:hover {
     color: #000;
-    background-color: #d1d1d1;
+    background-color: #7294d0;
   }
-  
-  /* Hide Navbar Links (except Contact) on Mobile */
+
+ 
   .navbar-menu {
     display: none;
   }
+
+  
+  .navbar-bottom button {
+    font-size: 12px; /* Smaller text size */
+    padding: 8px 12px; /* Adjusted padding */
+    margin: 3px; /* Reduced margin */
+  }
 }
 
+/* Top Navbar (Desktop Version) */
 @media (min-width: 1024px) {
-  /* Top Navbar */
   .navbar-menu {
     display: flex;
-    flex-wrap: wrap;
     justify-content: flex-start;
-    gap: 20px;
+    gap: 1px;
   }
 
   .navbar-menu button {
-    font-size: 18px;
-    padding: 10px 20px;
+    font-size: 16px;
+    padding: 8px 5px;
     border: none;
     background-color: transparent;
     color: #333;
     cursor: pointer;
     text-align: center;
+    font-weight: normal;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
   }
 
+  .navbar-menu button:hover {
+    color: #000;
+    font-weight: bold;
+    border-bottom: 2px solid #7284d0;
+  }
+
+  
   .navbar-menu button.active {
     font-weight: bold;
     color: #000;
+    border-bottom: 2px solid #000;
   }
+}
 
-  /* Hover Effect */
-  .navbar-menu button:hover {
-    color: #000;
-    background-color: #f1f1f1;
+
+/* Hide Sidebar Graphics on Mobile */
+@media (max-width: 1023px) {
+  .sidebar-canvas {
+    display: none !important; 
   }
 }
